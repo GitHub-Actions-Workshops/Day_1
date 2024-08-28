@@ -23,7 +23,7 @@ jobs:
         env:
           REPOSITORY_VAR: ${{vars.REPOSITORY_VAR}}
           ORGANIZATION_VAR: ${{vars.ORGANIZATION_VAR}}
-          ENVIRONMENT_VAR: ${{vars.ENVIRONMENT_VAR}
+          ENVIRONMENT_VAR: ${{vars.ENVIRONMENT_VAR}}
           STEP_VAR: "Zmienna w scopie stepu 1"
 
       - name: Use variables 2
