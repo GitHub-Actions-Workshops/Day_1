@@ -15,9 +15,7 @@ jobs:
         id: color-selector
         run: echo "$COLOR=red" >> "$GITHUB_OUTPUT"
       - name: Get color
-        with:
-          color: ${{ steps.color-selector.outputs.COLOR }}
-        run: echo "The selected color is $color"
+        run: echo "The selected color is ${{ steps.color-selector.COLOR }}"
 
   producer:
     runs-on: ubuntu-latest
@@ -34,10 +32,8 @@ jobs:
     needs: producer
     steps:
       - name: Print the message
-        with:
-          message: ${{ needs.producer.outputs.message }}
         run: |
-          echo $message
+          echo ${{ needs.producer.outputs.message }}
 
   job_1:
     name: Add 3 and 7
