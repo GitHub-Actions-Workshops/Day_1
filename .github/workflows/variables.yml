@@ -7,6 +7,7 @@ env:
 jobs:
   display-variables:
     name: ${{vars.ENVIRONMENT_VAR}}
+    environment: test
     env:
       JOB_VAR: "Zmienna w scopie joba"
     runs-on: ubuntu-latest
@@ -40,6 +41,8 @@ jobs:
 
   display-variables2:
     runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "Zmienna w scopie joba 2"
     steps:
       - name: Use variables in display-variables2
         run: |
