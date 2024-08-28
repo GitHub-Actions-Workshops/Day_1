@@ -24,7 +24,7 @@ jobs:
         id: sentence_maker
         run: |
           echo "$message=Pogda jest spoko" >> "$GITHUB_OUTPUT"
-        OUTPUTS:
+        outputs:
           message: ${{ steps.sentence_maker.outputs.message }}
 
   consumer:
