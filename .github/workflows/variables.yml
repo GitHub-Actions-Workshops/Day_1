@@ -36,7 +36,7 @@ jobs:
           STEP_VAR: "Zmienna w scopie stepu 2"
           REPOSITORY_VAR: ${{vars.REPOSITORY_VAR}}
           ORGANIZATION_VAR: ${{vars.ORGANIZATION_VAR}}
-          ENVIRONMENT_VAR: ${{vars.ENVIRONMENT_VAR}
+          ENVIRONMENT_VAR: ${{vars.ENVIRONMENT_VAR}}
 
   display-variables2:
     runs-on: ubuntu-latest
