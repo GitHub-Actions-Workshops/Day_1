@@ -24,8 +24,8 @@ jobs:
         id: sentence_maker
         run: |
           echo "$message=Pogda jest spoko" >> "$GITHUB_OUTPUT"
-        outputs:
-          message: ${{ steps.sentence_maker.outputs.message }}
+    outputs:
+      message: ${{ steps.sentence_maker.outputs.message }}
 
   consumer:
     runs-on: ubuntu-latest
@@ -41,15 +41,23 @@ jobs:
     steps:
       - shell: bash
         run: |
-          result=$(expr 3 + 7)
-          echo "result=$result" >> "$GITHUB_OUTPUT"
+          expr 3 + 7 > wynik.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wynik
+          path: wynik.txt
 
   job_2:
     name: Multiply by 9
     needs: job_1
     runs-on: windows-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: wynik
       - shell: bash
         run: |
-          value=`cat NAZWA_PLIKU_Z_ARTEFAKTU` 
+          value=`cat wynik.txt` 
           echo $(expr $value \* 9)
