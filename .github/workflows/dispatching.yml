@@ -13,10 +13,14 @@ on:
       default: "warning"
     environment:
       type: environment
+    matrix:
+      type: string
 
 jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.dispatch.outputs.matrix) }}
     steps:
       - name: Log the inputs
         run: |
